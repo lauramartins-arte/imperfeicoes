@@ -1,0 +1,912 @@
+// Função para scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Rápido para Resolver Imperfeições em Velas Artesanais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #ff9a9e, #fecfef);
+            border-radius: 2px;
+        }
+
+        .problem-card {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ff9a9e;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateX(10px);
+        }
+
+        .problem-title {
+            color: #667eea;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .causes-list {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .solutions-list {
+            background: #f0fff4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .interactive-checklist {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+
+        .checklist-item.checked {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .temperature-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .temperature-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .temperature-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .temperature-table tr:hover {
+            background: #f8f9ff;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ff9a9e;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            transition: width 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            font-size: 24px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🕯️ Guia Rápido para Resolver Imperfeições em Velas Artesanais</h1>
+            <p>Transforme seus erros em velas perfeitas com técnicas profissionais</p>
+        </div>
+
+
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('intro')">Introdução</button>
+            <button class="nav-tab" onclick="showSection('esteticos')">Problemas Estéticos</button>
+            <button class="nav-tab" onclick="showSection('pavios')">Pavios e Queima</button>
+            <button class="nav-tab" onclick="showSection('aromas')">Aromas</button>
+            <button class="nav-tab" onclick="showSection('testes')">Testes</button>
+            <button class="nav-tab" onclick="showSection('dicas')">Dicas Avançadas</button>
+            <button class="nav-tab" onclick="showSection('reaproveitamento')">Reaproveitamento</button>
+            <button class="nav-tab" onclick="showSection('checklist')">Checklist Final</button>
+        </div>
+
+        <!-- Seção Introdução -->
+        <div class="content-section active" id="intro">
+            <h2 class="section-title">Introdução às Imperfeições em Velas</h2>
+            
+            <div class="problem-card">
+                <h3 class="problem-title">O que são Imperfeições?</h3>
+                <p>As imperfeições em velas artesanais são defeitos que comprometem a aparência, o desempenho ou ambas características do produto final. Elas incluem:</p>
+                <ul style="margin: 15px 0; padding-left: 30px;">
+                    <li>Rachaduras na superfície</li>
+                    <li>Bolhas de ar visíveis</li>
+                    <li>Cores desiguais ou desbotadas</li>
+                    <li>Pavios que não queimam corretamente</li>
+                    <li>Produção de fuligem ou chamas instáveis</li>
+                </ul>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">Principais Causas</h3>
+                <div class="causes-list">
+                    <p><strong>1. Temperaturas Incorretas:</strong> Muito altas ou baixas durante derretimento, mistura ou despejo</p>
+                    <p><strong>2. Proporções Erradas:</strong> Excesso de essência, corante ou cera</p>
+                    <p><strong>3. Pavios Inadequados:</strong> Escolha errada resulta em chamas instáveis</p>
+                    <p><strong>4. Ambiente:</strong> Muito frio, quente ou úmido interfere no resfriamento</p>
+                    <p><strong>5. Erros no Processo:</strong> Falhas durante despejo, mistura ou resfriamento</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Dica Importante:</strong> Corrigir imperfeições vai além da estética - aumenta a confiança do consumidor, reduz desperdício e garante melhor desempenho!
+            </div>
+        </div>
+
+        <!-- Seção Problemas Estéticos -->
+        <div class="content-section" id="esteticos">
+            <h2 class="section-title">Problemas Estéticos e Como Corrigi-los</h2>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🔧 Rachaduras na Cera</h3>
+                <div class="causes-list">
+                    <h4>Causas:</h4>
+                    <ul>
+                        <li>Resfriamento rápido (choque térmico)</li>
+                        <li>Temperatura de despejo incorreta</li>
+                        <li>Diferença de temperatura entre cera e recipiente</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Soluções:</h4>
+                    <ul>
+                        <li><strong>Controle de temperatura:</strong> Despeje entre 50°C-70°C</li>
+                        <li><strong>Ambiente:</strong> Mantenha entre 21°C-25°C</li>
+                        <li><strong>Pré-aquecimento:</strong> Aqueça recipientes antes do despejo</li>
+                        <li><strong>Resfriamento gradual:</strong> Evite ventiladores ou geladeiras</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">💨 Bolhas de Ar</h3>
+                <div class="causes-list">
+                    <h4>Por que aparecem:</h4>
+                    <ul>
+                        <li>Mistura insuficiente</li>
+                        <li>Despejo muito rápido</li>
+                        <li>Superfícies mal preparadas no recipiente</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Como prevenir:</h4>
+                    <ul>
+                        <li>Misture devagar e continuamente</li>
+                        <li>Despeje lentamente</li>
+                        <li>Recipientes limpos e aquecidos</li>
+                        <li>Dê pequenas batidas no recipiente após despejo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🎨 Cores Desbotadas</h3>
+                <div class="causes-list">
+                    <h4>Causas comuns:</h4>
+                    <ul>
+                        <li>Corantes de baixa qualidade</li>
+                        <li>Temperatura errada na adição</li>
+                        <li>Excesso ou falta de corante</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Como garantir cores vibrantes:</h4>
+                    <ul>
+                        <li>Use corantes específicos para velas</li>
+                        <li>Misture completamente</li>
+                        <li>Adicione na temperatura correta</li>
+                        <li>Teste proporções em pequenos lotes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Pavios e Queima -->
+        <div class="content-section" id="pavios">
+            <h2 class="section-title">Problemas de Queima e Pavios</h2>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🔥 Pavios que Não Queimam</h3>
+                <div class="causes-list">
+                    <h4>Por que acontece:</h4>
+                    <ul>
+                        <li>Pavio pequeno ou fraco</li>
+                        <li>Cera muito densa</li>
+                        <li>Excesso de essência ou corante</li>
+                        <li>Pavio de má qualidade</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Soluções:</h4>
+                    <ul>
+                        <li>Escolha o pavio correto para o diâmetro</li>
+                        <li>Teste diferentes tipos e tamanhos</li>
+                        <li>Verifique compatibilidade com o tipo de cera</li>
+                        <li>Mantenha proporções adequadas de aditivos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">💨 Pavio que Apaga Rapidamente</h3>
+                <div class="causes-list">
+                    <h4>Principais causas:</h4>
+                    <ul>
+                        <li>Pavio muito fino para o diâmetro da vela</li>
+                        <li>Cera muito dura ou densa</li>
+                        <li>Piscina de cera muito profunda sufocando o pavio</li>
+                        <li>Temperatura ambiente muito baixa</li>
+                        <li>Correntes de ar no ambiente</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Como resolver:</h4>
+                    <ul>
+                        <li>Use pavio maior e mais resistente</li>
+                        <li>Adicione amaciantes à cera (5-10% de óleo vegetal)</li>
+                        <li>Verifique se o pavio está centralizado</li>
+                        <li>Proteja a vela de correntes de ar</li>
+                        <li>Teste em ambiente com temperatura controlada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🏊 Cera que Não Derrete (Não Forma Piscina)</h3>
+                <div class="causes-list">
+                    <h4>Por que acontece:</h4>
+                    <ul>
+                        <li>Pavio muito pequeno ou fraco</li>
+                        <li>Cera muito dura ou ponto de fusão alto</li>
+                        <li>Excesso de endurecedores ou aditivos</li>
+                        <li>Temperatura ambiente muito baixa</li>
+                        <li>Recipiente muito largo para o pavio</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Soluções eficazes:</h4>
+                    <ul>
+                        <li>Substitua por pavio maior ou use pavios duplos</li>
+                        <li>Misture cera mais mole (ex: 70% parafina + 30% cera de soja)</li>
+                        <li>Reduza aditivos endurecedores</li>
+                        <li>Use recipientes menores ou múltiplos pavios</li>
+                        <li>Teste diferentes tipos de pavio (algodão vs papel)</li>
+                        <li>Aqueça levemente o ambiente de uso</li>
+                    </ul>
+                </div>
+            </div>
+
+            <table class="temperature-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Cera</th>
+                        <th>Pavio Recomendado</th>
+                        <th>Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cera de Soja</td>
+                        <td>Pavios de algodão trançado</td>
+                        <td>Ideal para recipientes</td>
+                    </tr>
+                    <tr>
+                        <td>Parafina</td>
+                        <td>Pavios robustos</td>
+                        <td>Maior resistência</td>
+                    </tr>
+                    <tr>
+                        <td>Velas até 7cm</td>
+                        <td>Pavios finos/médios</td>
+                        <td>Melhor controle</td>
+                    </tr>
+                    <tr>
+                        <td>Velas > 7cm</td>
+                        <td>Pavios duplos/largos</td>
+                        <td>Queima uniforme</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="problem-card">
+                <h3 class="problem-title">💨 Fumaça Preta</h3>
+                <div class="causes-list">
+                    <h4>Causas:</h4>
+                    <ul>
+                        <li>Pavio muito grande</li>
+                        <li>Cera de baixa qualidade</li>
+                        <li>Falta de oxigênio</li>
+                    </ul>
+                </div>
+                <div class="solutions-list">
+                    <h4>Como resolver:</h4>
+                    <ul>
+                        <li>Corte o pavio para 5mm</li>
+                        <li>Melhore a ventilação</li>
+                        <li>Use materiais de qualidade</li>
+                        <li>Evite sobrecarga de essência (6-10%)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Aromas -->
+        <div class="content-section" id="aromas">
+            <h2 class="section-title">Soluções para Aromas Fracos</h2>
+
+            <div class="problem-card">
+                <h3 class="problem-title">👃 Aroma Fraco ou Inexistente</h3>
+                <div class="causes-list">
+                    <h4>Principais causas:</h4>
+                    <ul>
+                        <li>Proporção insuficiente de essência</li>
+                        <li>Temperatura de adição incorreta</li>
+                        <li>Essências de baixa qualidade</li>
+                        <li>Tipo de cera inadequado</li>
+                        <li>Queima ineficiente</li>
+                    </ul>
+                </div>
+            </div>
+
+            <table class="temperature-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Cera</th>
+                        <th>Proporção Ideal</th>
+                        <th>Temperatura de Adição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cera de Soja</td>
+                        <td>6% a 10%</td>
+                        <td>60°C - 70°C</td>
+                    </tr>
+                    <tr>
+                        <td>Parafina</td>
+                        <td>6% a 12%</td>
+                        <td>60°C - 70°C</td>
+                    </tr>
+                    <tr>
+                        <td>Cera de Abelha</td>
+                        <td>4% a 6%</td>
+                        <td>70°C - 75°C</td>
+                    </tr>
+                    <tr>
+                        <td>Cera de Coco</td>
+                        <td>8% a 12%</td>
+                        <td>50°C - 55°C</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <h4>📏 Como Calcular a Proporção:</h4>
+                <p>1. Determine o peso total da cera (ex: 1kg)</p>
+                <p>2. Multiplique pelo percentual desejado (ex: 8% = 80g de essência para 1kg de cera)</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Atenção:</strong> Nunca ultrapasse a proporção máxima recomendada pelo fabricante - o excesso pode causar fumaça preta ou separação da cera.
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">📦 Dicas de Armazenamento</h3>
+                <div class="solutions-list">
+                    <ul>
+                        <li><strong>Locais frescos e secos:</strong> Evite calor e umidade</li>
+                        <li><strong>Embalagens protetoras:</strong> Use plásticos específicos</li>
+                        <li><strong>Longe de odores fortes:</strong> Mantenha separado de detergentes</li>
+                        <li><strong>Armazenamento longo:</strong> Use caixas com sílica gel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Testes -->
+        <div class="content-section" id="testes">
+            <h2 class="section-title">Testes e Ajustes na Produção</h2>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🧪 Como Fazer Testes de Queima</h3>
+                <div class="interactive-checklist">
+                    <h4>Passo a passo do teste:</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="test1" onchange="updateChecklist(this)">
+                        <label for="test1">Prepare ambiente livre de correntes de ar (21°C-25°C)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="test2" onchange="updateChecklist(this)">
+                        <label for="test2">Observe a chama - deve ser estável, sem fuligem</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="test3" onchange="updateChecklist(this)">
+                        <label for="test3">Analise a piscina de cera - deve atingir toda largura em 2-3h</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="test4" onchange="updateChecklist(this)">
+                        <label for="test4">Teste o aroma - frio (apagada) e quente (acesa 2-3h)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="test5" onchange="updateChecklist(this)">
+                        <label for="test5">Inspeção visual - verifique rachaduras, bolhas, descolamento</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">⚡ Ajustes Rápidos</h3>
+                <div class="solutions-list">
+                    <ul>
+                        <li><strong>Chama muito alta:</strong> Use pavio menor</li>
+                        <li><strong>Piscina pequena:</strong> Pavio maior ou cera mais mole</li>
+                        <li><strong>Fumaça preta:</strong> Corte pavio e melhore ventilação</li>
+                        <li><strong>Aroma fraco:</strong> Aumente proporção (6-10%)</li>
+                        <li><strong>Queima rápida:</strong> Cera mais dura ou pavio menor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Dicas Avançadas -->
+        <div class="content-section" id="dicas">
+            <h2 class="section-title">Dicas Avançadas para Evitar Erros</h2>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🏭 Ambiente de Produção Ideal</h3>
+                <div class="solutions-list">
+                    <h4>Controle ambiental:</h4>
+                    <ul>
+                        <li><strong>Temperatura:</strong> 21°C-25°C constante</li>
+                        <li><strong>Umidade:</strong> Abaixo de 50% (use desumidificador)</li>
+                        <li><strong>Ventilação:</strong> Boa circulação, sem correntes diretas</li>
+                        <li><strong>Iluminação:</strong> LED branca natural para identificar imperfeições</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🔧 Ferramentas Essenciais</h3>
+                <div class="solutions-list">
+                    <ul>
+                        <li>Termômetro digital para precisão</li>
+                        <li>Balança de precisão para proporções exatas</li>
+                        <li>Espátula de silicone para mistura sem bolhas</li>
+                        <li>Fixadores de pavio para centralização</li>
+                        <li>Pistola de calor para correções</li>
+                        <li>Recipientes de teste para novas fórmulas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">📊 Rotina de Testes</h3>
+                <div class="interactive-checklist">
+                    <h4>Checklist de qualidade:</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="routine1" onchange="updateChecklist(this)">
+                        <label for="routine1">Teste de queima para cada novo lote</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="routine2" onchange="updateChecklist(this)">
+                        <label for="routine2">Registro de temperaturas e proporções</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="routine3" onchange="updateChecklist(this)">
+                        <label for="routine3">Documentação de resultados e ajustes</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="routine4" onchange="updateChecklist(this)">
+                        <label for="routine4">Teste pequenos lotes antes da produção em massa</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Reaproveitamento -->
+        <div class="content-section" id="reaproveitamento">
+            <h2 class="section-title">Salvando Lotes com Problemas</h2>
+
+            <div class="problem-card">
+                <h3 class="problem-title">♻️ Reaproveitando Velas com Imperfeições</h3>
+                <div class="solutions-list">
+                    <h4>Correções superficiais:</h4>
+                    <ul>
+                        <li><strong>Rachaduras:</strong> Pistola de calor ou cera líquida</li>
+                        <li><strong>Bolhas:</strong> Calor suave para estourar</li>
+                        <li><strong>Descolamento:</strong> Aquecer laterais do recipiente</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <h3 class="problem-title">🎨 Transformando Erros em Novos Produtos</h3>
+                <div class="solutions-list">
+                    <ul>
+                        <li><strong>Velas em camadas:</strong> Use diferentes cores/aromas</li>
+                        <li><strong>Moldes menores:</strong> Reaproveite cera de velas grandes</li>
+                        <li><strong>Sachês aromáticos:</strong> Adicione flores secas</li>
+                        <li><strong>Tabletes para aromatizadores:</strong> Corte em cubos</li>
+                        <li><strong>Mix exclusivo:</strong> Combine aromas únicos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Casos de Sucesso:</h4>
+                <p><strong>Rachaduras resgatadas:</strong> Aquecimento suave com pistola + ambiente controlado = vendas rápidas</p>
+                <p><strong>Pavios desalinhados:</strong> Derretimento + novos moldes menores = kits promocionais</p>
+                <p><strong>Excesso de essência:</strong> Transformação em tabletes = nova linha de produtos</p>
+            </div>
+        </div>
+
+        <!-- Seção Checklist Final -->
+        <div class="content-section" id="checklist">
+            <h2 class="section-title">Checklist Final para Produção Perfeita</h2>
+
+            <div class="interactive-checklist">
+                <h3>Antes de Começar</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prep1" onchange="updateChecklist(this)">
+                    <label for="prep1">Espaço organizado, limpo, temperatura 21°C-25°C</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prep2" onchange="updateChecklist(this)">
+                    <label for="prep2">Materiais e ferramentas disponíveis</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prep3" onchange="updateChecklist(this)">
+                    <label for="prep3">Recipientes limpos e aquecidos</label>
+                </div>
+            </div>
+
+            <div class="interactive-checklist">
+                <h3>Durante a Produção</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prod1" onchange="updateChecklist(this)">
+                    <label for="prod1">Temperatura da cera controlada</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prod2" onchange="updateChecklist(this)">
+                    <label for="prod2">Essência e corante na temperatura ideal</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prod3" onchange="updateChecklist(this)">
+                    <label for="prod3">Pavio centralizado</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="prod4" onchange="updateChecklist(this)">
+                    <label for="prod4">Despejo lento e uniforme</label>
+                </div>
+            </div>
+
+            <div class="interactive-checklist">
+                <h3>Após a Produção</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="post1" onchange="updateChecklist(this)">
+                    <label for="post1">Resfriamento natural</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="post2" onchange="updateChecklist(this)">
+                    <label for="post2">Teste de qualidade realizado</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="post3" onchange="updateChecklist(this)">
+                    <label for="post3">Inspeção visual completa</label>
+                </div>
+            </div>
+
+            <table class="temperature-table">
+                <thead>
+                    <tr>
+                        <th>Diâmetro da Vela</th>
+                        <th>Pavio Recomendado</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Até 5cm</td>
+                        <td>Pavios finos (#1-2)</td>
+                        <td>Melhor controle</td>
+                    </tr>
+                    <tr>
+                        <td>5cm - 7cm</td>
+                        <td>Pavios médios (#3-4)</td>
+                        <td>Queima equilibrada</td>
+                    </tr>
+                    <tr>
+                        <td>Acima de 7cm</td>
+                        <td>Pavios largos (#5-6) ou duplos</td>
+                        <td>Cobertura completa</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <h4>Parabéns! Você agora tem todas as ferramentas para criar velas perfeitas!</h4>
+                <p>Este guia abrange desde a identificação de problemas até técnicas avançadas de correção. Continue praticando e testando para aperfeiçoar sua técnica.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Função para mostrar seções
+        function showSection(sectionId) {
+            // Esconder todas as seções
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remover classe active de todas as abas
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Mostrar seção selecionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Adicionar classe active na aba clicada
+            event.target.classList.add('active');
+
+            // Atualizar barra de progresso
+            updateProgress();
+
+            // Scroll para o início da seção selecionada
+            const sectionElement = document.getElementById(sectionId);
+            sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Função para atualizar checklist
+        function updateChecklist(checkbox) {
+            const item = checkbox.parentElement;
+            if (checkbox.checked) {
+                item.classList.add('checked');
+            } else {
+                item.classList.remove('checked');
+            }
+            updateProgress();
+        }
+
+        // Função para atualizar barra de progresso
+        function updateProgress() {
+            const totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
+            const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progress = totalCheckboxes > 0 ? (checkedBoxes / totalCheckboxes) * 100 : 0;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar/esconder botão back to top
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('backToTop');
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            // Inicializar progresso
+            updateProgress();
+        });
+    </script>
